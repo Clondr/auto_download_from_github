@@ -1,0 +1,9 @@
+[package]
+name = "auto_download_from_github"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.54.1", features = ["macros", "rt-multi-thread"] }
+inquire = "0.9.4"
+reqwest = "0.13.5"
