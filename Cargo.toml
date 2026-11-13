@@ -7,3 +7,11 @@ edition = "2024"
 tokio = { version = "1.54.1", features = ["macros", "rt-multi-thread"] }
 inquire = "0.9.4"
 reqwest = "0.13.5"
+
+[profile.release]
+opt-level = "z"     # Оптимизация размера (можно попробовать "s", иногда он дает меньший вес)
+lto = true          # Включает Link-Time Optimization для удаления мертвого кода между крейтами
+codegen-units = 1   # Улучшает оптимизацию, компилируя код единым блоком (замедляет сборку)
+panic = "abort"     # Убирает код раскрутки стека при панике (уменьшает размер на ~10-20%)
+strip = true        # Автоматически удаляет отладочные символы из бинарного файла
+default-features = false
